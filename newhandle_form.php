@@ -49,7 +49,11 @@ and open the template in the editor.
             } elseif ($gender == 'F'){
                 echo '<p><b>Good day Madam!</b></p>';  
             }
-             echo "<p>Thank you, <b>$name</b> , por el siguiente comentario:<br/> <tt>$comments</tt></p><p> We will reply to you at <i>$email</i></p>\n";
+            if ($name && $email && $gender && $comments){
+                echo "<p>Thank you, <b>$name</b> , por el siguiente comentario:<br/> <tt>$comments</tt></p><p> We will reply to you at <i>$email</i></p>\n";
+            } else {
+                echo'<p class ="error">Vuelve a rellenar el formulario de nuevo. </p> ';
+            }
         ?>
        
     </body>
