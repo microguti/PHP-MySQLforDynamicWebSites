@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -23,6 +19,7 @@ and open the template in the editor.
                 $days = range (1, 31);
                 $years = range (2014, 2021);
                 echo '<select name="month">';
+                //Hemos utilizado como ejemplo $key=>$value aunque no es necesario nada mas que el valor
                 foreach ($months as $key=>$value){
                     echo "<option value=\"$key\">$value</option>\n";
                 }
@@ -31,6 +28,12 @@ and open the template in the editor.
                 echo '<select name="dias">';
                 foreach ($days as $value){
                     echo "<option value=\"$value\">$value</option>\n";
+                }
+                echo '</select>';
+                // Otra forma de crear dias
+                echo '<select name="day">';
+                for ($day=1;$day<=31; $day++){
+                    echo "<option value=\"$day\">$day</option>\n";
                 }
                 echo '</select>';
                 

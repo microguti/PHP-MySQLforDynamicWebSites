@@ -17,8 +17,9 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-            if (!empty($_REQUEST['name'])){
-                $name = $_REQUEST['name'];
+        //Se debe precisar cuando usamos una variable por lo que $_POST es mas accurate que $_REQUEST
+            if (!empty($_POST['name'])){
+                $name = $_POST['name'];
             } else {
                 $name =NULL;
                 echo '<p class="error">Olvidaste poner el nombre!</p>';
