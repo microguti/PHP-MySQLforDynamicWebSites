@@ -1,4 +1,12 @@
 <?php #Script 3.5 - calculator.php
+function create_gallon_radio($value){
+    echo '<input type="radio" name="gallon_price" value="' . $value . ' "';
+    if (isset($_POST['gallon_price']) && ($_POST['gallon_price']==$value)){
+        echo 'checked="checked"';
+    }
+    echo ">$value";
+}
+
 $page_title='Calculador de Coste de Viajes';
 include('header.html');
 
@@ -25,14 +33,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         <input type="text" name="distance" value="<?php if (isset($_POST['distance'])) echo $_POST['distance'];?>">
     </p>
     <p>Media de Precio por Galon: 
-        <span class='input'>
+        <span class="input'>
+            <!--Sin utilizar funciones
             <input type="radio" name='gallon_price' value="3.00" 
                     <?php if (isset($_POST['gallon_price']) && ($_POST['gallon_price']=='3.00')) echo 'checked="checked"';?>>3.00
             <input type="radio" name='gallon_price' value="3.50"
                    <?php if (isset($_POST['gallon_price']) && ($_POST['gallon_price']=='3.50')) echo 'checked="checked"';?>>3.50
             <input type="radio" name='gallon_price' value="4.00"
                    <?php if (isset($_POST['gallon_price']) && ($_POST['gallon_price']=='4.00')) echo 'checked="checked"';?>>4.00
-        </span>
+            -->
+            <!--Utilizando funciones-->
+            <?php
+            create_gallon_radio('3.00');
+            create_gallon_radio('3.50');
+            create_gallon_radio('4.00');
+            ?>
+            </span>
     </p>
     <p>Fuel Efficiency:
         <select name="efficiency">
